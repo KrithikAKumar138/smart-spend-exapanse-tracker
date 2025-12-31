@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #111 0%, #000 60%);
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.card {
+    width: 380px;
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.logo span {
+    color: #2ecc71;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #aaa;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2ecc71;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2ecc71;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #27ae60;
+}
+
+.error {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.success {
+    color: #2ecc71;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.link {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.link a {
+    color: #2ecc71;
+    text-decoration: none;
+}
