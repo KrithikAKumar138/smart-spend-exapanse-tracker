@@ -1,14 +1,11 @@
 package com.smartspend.backend.controller;
 import com.smartspend.backend.dto.LoginRequest;
 import com.smartspend.backend.dto.RegisterRequest;
-import com.smartspend.backend.module.User;
 import com.smartspend.backend.service.UserService;
 import com.smartspend.backend.util.JwtUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
