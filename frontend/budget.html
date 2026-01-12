@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Budget</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<div class="page">
+
+  <h1>Budget Overview</h1>
+
+  <!-- BUDGET USAGE -->
+   <!-- SET BUDGET -->
+<div class="set-budget">
+    <div>
+        <button class="set-budget-btn" onclick="openBudgetModal()">
+    Set Budget
+  </button>
+  </div>
+</div>
+
+
+  <div class="budget-circle-container">
+    <canvas id="budgetChart"></canvas>
+    <h2 id="totalUsage">₹ 0</h2>
+  </div>
+
+  <!-- SUMMARY CARDS -->
+  <div class="cards">
+    <div class="card-box income">
+      <span>Income</span>
+      <h2>₹ <span id="income">0</span></h2>
+      
+    </div>
+    
+    <div class="card-box budget">
+      <span>Budget</span>
+      <h2>₹ <span id="budget">0</span></h2>
+    </div>
+
+    <div class="card-box remaining">
+      <span>Remaining</span>
+      <h2>₹ <span id="remaining">0</span></h2>
+    </div>
+  </div>
+
+  <!-- CATEGORY BUDGETS -->
+  <h2>Category Budgets</h2>
+  <div id="categoryBudgets" class="cards"></div>
+
+</div>
+<!-- BUDGET MODAL -->
+<div id="budgetOverlay" class="modal-overlay hidden"></div>
+
+<div id="budgetModal" class="budget-modal hidden">
+  <h2>Set a new <span class="green">Budget</span></h2>
+
+  <label>Budget Amount</label>
+  <input
+    type="number"
+    id="budgetInput"
+    placeholder="Enter monthly budget"
+  />
+
+  <div class="modal-actions">
+    <button class="cancel" onclick="closeBudgetModal()">Cancel</button>
+    <button class="save" onclick="saveBudget()">Update Budget</button>
+  </div>
+</div>
+
+
+<script>
+fetch("navbar.html")
+  .then(res => res.text())
+  .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+<script src="js/guard.js"></script>
+<script src="js/budget.js"></script>
+
+</body>
+</html>

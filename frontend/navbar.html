@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">Expance<span>Tracker</span></div>
+
+<nav class="navbar">
+  <a href="dashboard.html" data-page="dashboard">Dashboard</a>
+
+  <a href="budget.html" data-page="budget">Budget</a>
+
+</nav>
+<button class="logout-btn" onclick="logout()">Logout</button>
+<script>function setActiveNav() {
+  const path = window.location.pathname.toLowerCase();
+
+  document.querySelectorAll(".navbar a").forEach(link => {
+    link.classList.remove("active");
+
+    const page = link.dataset.page;
+
+    if (
+      (page === "dashboard" && (path === "/" || path.includes("dashboard"))) ||
+      (page === "history" && path.includes("history")) ||
+      (page === "budget" && path.includes("budget")) ||
+      (page === "group" && path.includes("group")) ||
+      (page === "settings" && path.includes("settings"))
+    ) {
+      link.classList.add("active");
+    }
+  });
+}
+</script>
+
+
+</nav>
+</body>
+</html>

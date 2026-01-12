@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+</head>
+<body>
+
+<!-- Navbar loads here -->
+<div id="navbar"></div>
+
+<!-- MAIN PAGE CONTENT -->
+<div class="page">
+
+  <!-- PAGE TITLE -->
+<div class="dashboard-header">
+  <div>
+    <h1>Dashboard</h1>
+    <p>Welcome 👋</p>
+  </div>
+  <div class="actions">
+<button class="btn income" onclick="openIncomeModal()">New Income</button>
+<button class="btn expense" onclick="openExpenseModal()">New Expense</button>
+
+    <button class="btn recurring">New Recurring</button>
+  </div>
+</div>
+
+  <!-- 👇 ADD THE CARDS HERE -->
+<div class="cards">
+<div class="card-box remaining">
+  <div class="card-header">
+    <span>Remaining</span>
+    <i class="fa-solid fa-wallet icon"></i>
+  </div>
+
+  <h2>₹ <span id="remainingAmount">0</span></h2>
+  <small>All time</small>
+</div>
+
+
+<div class="card-box income">
+  <div class="card-header">
+    <span>Income</span>
+    <i class="fa-solid fa-arrow-trend-up icon up"></i>
+  </div>
+
+  <h2>₹ <span id="incomeAmount">0</span></h2>
+  <small>All time</small>
+</div>
+
+
+<div class="card-box expense">
+  <div class="card-header">
+    <span>Expense</span>
+    <i class="fa-solid fa-arrow-trend-down icon down"></i>
+  </div>
+
+  <h2>₹ <span id="expenseAmount">0</span></h2>
+  <small>All time</small>
+</div>
+
+
+  <!-- WELCOME MESSAGE (FROM JWT) -->
+  <p id="welcome"></p>
+
+</div>
+<div class="dashboard-sections">
+  <div class="section-box">
+  <h3>Transactions</h3>
+  <div id="transactionsList" class="transactions-list"></div>
+  <div class="pagination">
+  <button onclick="prevPage()">Prev</button>
+   <span id="pageInfo" class="page-info">
+    Page 1 of 2
+  </span>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+</div>
+
+  <div class="section-box">
+  <h3>Expenses</h3>
+  <div id="expenseList"></div>
+<div class="expense-chart-container">
+  <h3 class="chart-title">Expense Distribution</h3>
+  <div class="expense-chart-wrapper">
+  <canvas id="expenseChart"></canvas>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+<!-- MODAL BACKDROP -->
+<div id="modalOverlay" class="modal-overlay hidden"></div>
+
+<!-- INCOME / EXPENSE MODAL -->
+<div id="transactionModal" class="modal hidden">
+  <h2 id="modalTitle">Add Transaction</h2>
+
+  <form onsubmit="saveTransaction(event)">
+    <label>Amount</label>
+    <input type="number" id="amountInput" placeholder="Enter amount" />
+
+<div id="categoryWrapper">
+  <label>Category</label>
+<select id="categoryInput">
+  <option value="Bills">Bills</option>
+  <option value="Food">Food</option>
+  <option value="Entertainment">Entertainment</option>
+  <option value="Transportation">Transportation</option>
+  <option value="EMI">EMI</option>
+  <option value="Healthcare">Healthcare</option>
+  <option value="Education">Education</option>
+  <option value="Investment">Investment</option>
+  <option value="Shopping">Shopping</option>
+  <option value="Fuel">Fuel</option>
+  <option value="Groceries">Groceries</option>
+  <option value="Other">Other</option>
+</select>
+
+</div>
+
+
+    <label>Description</label>
+    <input type="text" id="descriptionInput" placeholder="Optional note" />
+
+    <div class="modal-actions">
+      <button type="button" class="cancel" onclick="closeModal()">Cancel</button>
+      <button type="submit" class="save">Save</button>
+    </div>
+  </form>
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+  fetch("navbar.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("navbar").innerHTML = html;
+    setActiveNav();
+  });
+
+</script>
+
+<script src="js/guard.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+</body>
+</html>
