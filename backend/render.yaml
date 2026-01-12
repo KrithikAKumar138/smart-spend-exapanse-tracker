@@ -1,0 +1,13 @@
+FROM eclipse-temurin:17-jdk
+
+services:
+  - type: web
+    name: your-app-name
+    env: java
+    buildCommand: cd backend && mvn clean package -DskipTests
+    startCommand: cd backend && java -Dserver.port=$PORT -jar target/*.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: PORT
+        value: 8080
